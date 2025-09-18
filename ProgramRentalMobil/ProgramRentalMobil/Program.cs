@@ -1,21 +1,17 @@
-﻿public class Mobil
+﻿using System;
+
+class Program
 {
-    public string plat;
-    public string merk;
-    public bool tersedia;
-
-    public Mobil(string p, string m)
+    static void Main(string[] args)
     {
-        plat = p;
-        merk = m;
-        tersedia = true;
-    }
+        Mobil mobil1 = new Mobil("B1234XYZ", "Toyota Avanza");
+        MobilListrik mobil2 = new MobilListrik("B5678ABC", "Hyundai Ioniq");
 
-    public virtual int HitungBiaya(int hari)
-    {
-        return hari * 500000;
-    }
+        Pelanggan pelanggan1 = new Pelanggan("Argha", "SIM123456");
 
-    public void Sewa() => tersedia = false;
-    public void Kembali() => tersedia = true;
+        Transaksi transaksi1 = new Transaksi(mobil2, pelanggan1, 3);
+        transaksi1.CetakNota();
+
+        mobil2.Kembali();
+    }
 }
